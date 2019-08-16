@@ -7,6 +7,11 @@ const PostSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     required: true
   },
+  category: {
+    ref: "category",
+    type: Schema.Types.ObjectId,
+    required: true
+  },
   createdAt: {
     type: Date,
     default: new Date(),
@@ -22,7 +27,7 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 6,
-    maxlength: 50
+    maxlength: 80
   },
   content: {
     type: String,

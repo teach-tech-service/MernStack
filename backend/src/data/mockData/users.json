@@ -1,7 +1,7 @@
 [
     {
         "email": "marcinwarzybok@outlook.com",
-        "pass": "testowe",
+        "password": "testowe",
         "username": "mwarzybok",
         "comments": [
             {
@@ -16,7 +16,7 @@
     },
     {
         "email": "mw@outlook.com",
-        "pass": "testowe",
+        "password": "testowe",
         "username": "mwalaana",
         "comments": [
             {
@@ -27,7 +27,7 @@
     },
     {
         "email": "digitalaa@outlook.com",
-        "pass": "tessddsadadatowe",
+        "password": "tessddsadadatowe",
         "username": "ocean",
         "comments": [
             {
@@ -37,7 +37,7 @@
     },
     {
         "email": "mardsadacinwarzybok@outlook.com",
-        "pass": "testowe",
+        "password": "testowe",
         "username": "mwarzybok"
     }
 ]

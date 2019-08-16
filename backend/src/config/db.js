@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import { importDataFromFiles } from "../helpers/loadData";
-import Category from "../models/category";
-import Post from "../models/post";
-import Users from "../models/user";
+import CategoryModel from "../models/category";
+import PostModel from "../models/post";
+import UserModel from "../models/user";
 import dotenv from "dotenv/config";
 import fs from "fs";
 import path from "path";
@@ -21,11 +21,26 @@ export default () => {
       console.log(`Connected to MongoDB on port ${MONGO_DB_URL}`);
       importDataFromFiles([
         "mockData/users.json",
-        "mockData/posts.json",
-        "defaultData/categories.json"
-      ]).then((data) => {
-        console.log(data)
-      })
+        "defaultData/categories.json",
+        "mockData/posts.json"
+      ]).then(async data => {
+        await UserModel.deleteMany({});
+        await CategoryModel.deleteMany({});
+        await PostModel.deleteMany({});
+        const users = await UserModel.insertMany(data[0]),
+          categories = await CategoryModel.insertMany(data[1]),
+          posts = data[2];
+
+        for (let p = 0; p < posts.length; p++) {
+          posts[p].userCreated = users[0]._id;
+          posts[p].category = categories[0]._id;
+        }
+        posts[0].comments = users[0].comments;
+        posts[1].comments = users[1].comments;
+        posts[2].comments = users[2].comments;
+
+        await PostModel.insertMany(posts);
+      });
     }
   );
 };
