@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import CommentSchema from "./comment";
 
 const PostSchema = new mongoose.Schema({

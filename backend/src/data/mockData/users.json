@@ -1,0 +1,43 @@
+[
+    {
+        "email": "marcinwarzybok@outlook.com",
+        "pass": "testowe",
+        "username": "mwarzybok",
+        "comments": [
+            {
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra orci eget hendrerit commodo. Donec nec leo id ipsum suscipit laoreet.",
+                "upvotes": 12
+            },
+            {
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra orci eget hendrerit commodo. Donec nec leo id ipsum suscipit laoreet.",
+                "upvotes": 1
+            }
+        ]
+    },
+    {
+        "email": "mw@outlook.com",
+        "pass": "testowe",
+        "username": "mwalaana",
+        "comments": [
+            {
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra orci eget hendrerit commodo. Donec nec leo id ipsum suscipit laoreet.",
+                "upvotes": -10
+            }
+        ]
+    },
+    {
+        "email": "digitalaa@outlook.com",
+        "pass": "tessddsadadatowe",
+        "username": "ocean",
+        "comments": [
+            {
+                "content": "Lodasasssssssssssrem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra orci eget hendrerit commodo. Donec nec leo id ipsum suscipit laoreet."
+            }
+        ]
+    },
+    {
+        "email": "mardsadacinwarzybok@outlook.com",
+        "pass": "testowe",
+        "username": "mwarzybok"
+    }
+]

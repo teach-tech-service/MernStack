@@ -24,4 +24,5 @@ const CommentSchema = new mongoose.Schema({
   }
 });
 
+
 export default CommentSchema;
