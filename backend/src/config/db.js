@@ -27,8 +27,8 @@ export default () => {
         await UserModel.deleteMany({});
         await CategoryModel.deleteMany({});
         await PostModel.deleteMany({});
-        const users = await UserModel.insertMany(data[0]),
-          categories = await CategoryModel.insertMany(data[1]),
+        const users = await UserModel.create(data[0]),
+          categories = await CategoryModel.create(data[1]),
           posts = data[2];
 
         for (let p = 0; p < posts.length; p++) {
@@ -39,7 +39,7 @@ export default () => {
         posts[1].comments = users[1].comments;
         posts[2].comments = users[2].comments;
 
-        await PostModel.insertMany(posts);
+        await PostModel.create(posts)
       });
     }
   );
