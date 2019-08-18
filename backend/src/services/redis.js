@@ -1,18 +1,17 @@
 import client from "../config/redis";
 import {
-    NOT_FOUND_KEY,
-    REDIS_INTERNAL_ERROR,
-    FOUND_KEY,
-    REDIS_DELETE_TOKEN_STACK
-  } from "../statuses/redisStatuses";
+  NOT_FOUND_KEY,
+  REDIS_INTERNAL_ERROR,
+  FOUND_KEY
+} from "../statuses/redisStatuses";
 
-export function setToTokenStack(key, companyId) {
+export function setToRedis(TOKEN_STACK, key, value, options) {
   return new Promise((resolve, reject) => {
-    client.select(REDIS_DELETE_TOKEN_STACK, function(err) {
+    client.select(TOKEN_STACK, function(err) {
       if (err) {
         reject(REDIS_INTERNAL_ERROR);
       }
-      client.set(key, companyId, "EX", 3600 * 24, err => {
+      client.set(key, value, ...options, err => {
         if (err) {
           reject(REDIS_INTERNAL_ERROR);
         }
@@ -22,12 +21,12 @@ export function setToTokenStack(key, companyId) {
   });
 }
 
-export function getFromTokenStack(key) {
+export function getFromRedis(TOKEN_STACK, key) {
   return new Promise((resolve, reject) => {
-    client.select(REDIS_DELETE_TOKEN_STACK, function() {
+    client.select(TOKEN_STACK, function() {
       client.get(key, (err, reply) => {
         if (err) {
-          reject(REDIS_INTERNAL_ERROR);
+          reject(REDIS_INTERNAL_ERROR + err);
         }
         if (!reply) {
           reject(NOT_FOUND_KEY);
@@ -38,5 +37,11 @@ export function getFromTokenStack(key) {
         });
       });
     });
+  });
+}
+
+export function deleteFromRedis(TOKEN_STACK, key) {
+  client.select(REDIS_CONFIRM_EMAIL_STACK, function() {
+    client.del(key);
   });
 }

@@ -1,7 +1,7 @@
 import express from "express";
 import {
     getUserPosts
-} from "../../controllers/user/user";
+} from "../../controllers/user/userPost";
 
 const router = express.Router();
 
