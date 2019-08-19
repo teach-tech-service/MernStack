@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import UsersTable from "./UsersTable";
+import UsersTable from "../../components/UsersTable";
 
 const users = [
   {
